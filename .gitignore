@@ -32,10 +32,11 @@
 
 # PHPUnit
 /app/phpunit.xml
-/phpunit.xml
 
 # Build data
 /build/
 
 # Backup entities generated with doctrine:generate:entities command
 **/Entity/*~
+
+vendor
