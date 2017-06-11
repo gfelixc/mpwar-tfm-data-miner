@@ -18,14 +18,15 @@ class DataMiner
         $this->eventDispatcher    = $eventDispatcher;
     }
 
-    public function execute()
+    public function execute(): void
     {
         $keywordsList = $this->keywordsRepository->all();
 
         foreach ($keywordsList as $keyword) {
+            $event = new KeywordWasRetrievedEvent($keyword);
             $this->eventDispatcher->dispatch(
                 KeywordWasRetrievedEvent::NAME,
-                new KeywordWasRetrievedEvent($keyword)
+                $event
             );
         }
     }

@@ -4,12 +4,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Mpwar\\DataMiner\\": "src/DataMiner"
+      "Mpwar\\DataMiner\\": "src/DataMiner/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Mpwar\\Test\\": "src/Test"
+      "Mpwar\\Test\\": "src/Test/"
     }
   },
   "require-dev": {
