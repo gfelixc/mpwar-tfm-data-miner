@@ -1,6 +1,6 @@
 <?php
 
-namespace Mpwar\DataMiner\Test;
+namespace Mpwar\DataMiner\Test\Application;
 
 use Mockery\Mock;
 use Mpwar\DataMiner\Application\DataMiner;
@@ -20,17 +20,19 @@ class DataMinerTest extends UnitTestCase
     /** @var  DataMiner */
     private $dataMiner;
 
-    protected function setUp()
+    /**
+     * @test
+     */
+    public function withEmptyRepositoryShouldPass()
     {
-        parent::setUp();
+        $keywordsList = KeywordsCollectionStub::empty();
 
-        $this->keywordsRepository = $this->mock(KeywordsRepository::class);
-        $this->eventDispatcher = $this->mock(EventDispatcher::class);
+        $this->keywordsRepository->shouldReceive('all')
+                                 ->once()
+                                 ->withNoArgs()
+                                 ->andReturn($keywordsList);
 
-        $this->dataMiner          = new DataMiner(
-            $this->keywordsRepository,
-            $this->eventDispatcher
-        );
+        $this->assertNull($this->dataMiner->execute());
     }
 
     /**
@@ -38,7 +40,7 @@ class DataMinerTest extends UnitTestCase
      */
     public function itShouldRetrieveOneKeywordAndDispatch()
     {
-        $keyword = KeywordStub::random();
+        $keyword      = KeywordStub::random();
         $keywordsList = KeywordsCollectionStub::create(
             [
                 $keyword
@@ -59,6 +61,18 @@ class DataMinerTest extends UnitTestCase
                               ->andReturnNull();
 
         $this->assertNull($this->dataMiner->execute());
+    }
+
+    protected function setUp()
+    {
+        parent::setUp();
+
+        $this->keywordsRepository = $this->mock(KeywordsRepository::class);
+        $this->eventDispatcher    = $this->mock(EventDispatcher::class);
+
+        $this->dataMiner = new DataMiner(
+            $this->keywordsRepository, $this->eventDispatcher
+        );
     }
 
 }

@@ -21,4 +21,9 @@ class KeywordsCollectionStub extends Stub
     {
         return $values;
     }
+
+    public static function empty()
+    {
+        return [];
+    }
 }
