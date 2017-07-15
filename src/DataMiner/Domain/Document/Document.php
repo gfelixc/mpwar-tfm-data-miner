@@ -19,8 +19,28 @@ class Document
         DocumentContent $content
     ) {
         $this->id      = $id;
-        $this->service  = $service;
+        $this->service = $service;
         $this->keyword = $keyword;
         $this->content = $content;
+    }
+
+    public function service(): ServiceName
+    {
+        return $this->service;
+    }
+
+    public function id(): DocumentId
+    {
+        return $this->id;
+    }
+
+    public function keyword(): Keyword
+    {
+        return $this->keyword;
+    }
+
+    public function content(): DocumentContent
+    {
+        return $this->content;
     }
 }

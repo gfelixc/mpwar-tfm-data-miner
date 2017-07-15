@@ -27,7 +27,7 @@ abstract class Uuid
         }
     }
 
-    public static function new(): self
+    public static function new()
     {
         $ramseyUuid = RamseyUuid::uuid4()
                                 ->toString();
@@ -35,7 +35,7 @@ abstract class Uuid
         return new static($ramseyUuid);
     }
 
-    public static function fromString(string $uuid): self
+    public static function fromString(string $uuid)
     {
         return new static($uuid);
     }

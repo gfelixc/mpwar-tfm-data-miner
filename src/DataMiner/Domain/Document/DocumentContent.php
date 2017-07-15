@@ -12,7 +12,7 @@ class DocumentContent
         $this->value = $value;
     }
 
-    public static function fromString($tweet)
+    public static function fromString(string $tweet): self
     {
         $jsonEncodedValue = json_encode($tweet);
         return new static($jsonEncodedValue);
@@ -23,7 +23,7 @@ class DocumentContent
         return $this->value;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->value();
     }
