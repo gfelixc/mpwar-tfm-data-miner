@@ -1,6 +1,8 @@
 <?php
 
-namespace Mpwar\DataMiner\Domain\Keyword;
+namespace Mpwar\DataMiner\Application;
+
+use Mpwar\DataMiner\Domain\Keyword\Keyword;
 
 class KeywordWasRetrievedEvent
 {

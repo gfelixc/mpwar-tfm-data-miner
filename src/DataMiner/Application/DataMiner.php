@@ -2,9 +2,7 @@
 
 namespace Mpwar\DataMiner\Application;
 
-use Mpwar\DataMiner\Domain\EventDispatcher;
 use Mpwar\DataMiner\Domain\Keyword\KeywordsRepository;
-use Mpwar\DataMiner\Domain\Keyword\KeywordWasRetrievedEvent;
 
 class DataMiner
 {

@@ -2,6 +2,7 @@
 
 namespace Mpwar\DataMiner\Test\Infrastructure;
 
+use Mpwar\DataMiner\Domain\Keyword\KeywordsCollection;
 use Mpwar\Test\Infrastructure\Stub;
 
 class KeywordsCollectionStub extends Stub
@@ -14,16 +15,16 @@ class KeywordsCollectionStub extends Stub
             $keywords[] = KeywordStub::random();
         }
 
-        return $keywords;
+        return self::create($keywords);
     }
 
     public static function create(array $values)
     {
-        return $values;
+        return new KeywordsCollection(...$values);
     }
 
     public static function empty()
     {
-        return [];
+        return self::create([]);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Mpwar\DataMiner\Domain;
+namespace Mpwar\DataMiner\Application;
 
 interface EventDispatcher
 {

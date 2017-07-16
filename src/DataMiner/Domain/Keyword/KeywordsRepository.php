@@ -5,5 +5,5 @@ namespace Mpwar\DataMiner\Domain\Keyword;
 interface KeywordsRepository
 {
 
-    public function all();
+    public function all(): KeywordsCollection;
 }
