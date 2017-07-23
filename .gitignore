@@ -2,5 +2,5 @@ vendor
 .php_cs.cache
 *.retry
 ansible/roles
-resources/config
+resources/config/credentials.yml
 *.pem

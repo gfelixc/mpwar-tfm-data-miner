@@ -4,8 +4,15 @@ require_once __DIR__ . '/../../../../../vendor/autoload.php';
 
 $app = new Silex\Application();
 
+$credentials = \Symfony\Component\Yaml\Yaml::parse(
+    file_get_contents(__DIR__ . '/../../../../../resources/config/credentials.yml')
+);
+
+foreach ($credentials as $key => $value) {
+    $app[$key] = $value;
+}
 $config = \Symfony\Component\Yaml\Yaml::parse(
-    file_get_contents(__DIR__ . '/../../../../../resources/config/config.yaml')
+    file_get_contents(__DIR__ . '/../../../../../resources/config/config.yml')
 );
 
 foreach ($config as $key => $value) {

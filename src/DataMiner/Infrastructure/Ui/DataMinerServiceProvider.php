@@ -13,14 +13,10 @@ class DataMinerServiceProvider implements ServiceProviderInterface
         $app['service.visits.repository'] = new \Mpwar\DataMiner\Infrastructure\Domain\Service\FakeServiceVisitsRepository();
         $app['service.twitter'] = new \Mpwar\DataMiner\Domain\Service\SocialNetwork\Twitter(
             $app['service.visits.repository'],
-            "tQztCZgNcGaTbjtbBtX0Mw",
-            "UBhByoTWvyOQTzXpwiTJOeb6k5vVNCmURFD4MzkygU",
-            "148461182-8hrZfmzyTCSnNcZL53eLIXl6oNHJTKZZDNScQYJP",
-            "jGXq1mnG9uF9jV33ppwvQ2PQ5pdOvMSnv5ncgdCfnAEeB"
-//            $app['credentials.twitter.consumer_key'],
-//            $app['credentials.twitter.consumer_secret'],
-//            $app['credentials.twitter.access_token'],
-//            $app['credentials.twitter.access_token_secret']
+            $app['credential.twitter.consumer_key'],
+            $app['credential.twitter.consumer_secret'],
+            $app['credential.twitter.access_token'],
+            $app['credential.twitter.access_token_secret']
         );
 
         $app['document.factory'] = new \Mpwar\DataMiner\Infrastructure\Domain\Document\DoctrineDocumentFactory();
