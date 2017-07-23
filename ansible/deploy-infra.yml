@@ -1,0 +1,10 @@
+- hosts: mongo
+  become: true
+  become_user: root
+  vars_files:
+    - vars/infra.yml
+  roles:
+    - {
+        role: softasap.sa-mongo,
+        mongo_version: "3.4"
+      }

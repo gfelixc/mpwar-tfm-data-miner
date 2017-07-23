@@ -7,10 +7,10 @@ use Mpwar\DataMiner\Domain\Service\ServiceName;
 
 class Document
 {
-    private $service;
-    private $id;
-    private $keyword;
-    private $content;
+    protected $service;
+    protected $id;
+    protected $keyword;
+    protected $content;
 
     public function __construct(
         DocumentId $id,

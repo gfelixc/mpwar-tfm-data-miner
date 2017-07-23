@@ -7,6 +7,7 @@ use Mpwar\DataMiner\Domain\Keyword\Keyword;
 use Mpwar\DataMiner\Domain\Service\LastRecordVisited;
 use Mpwar\DataMiner\Domain\Service\Service;
 use Mpwar\DataMiner\Domain\Service\ServiceName;
+use Mpwar\DataMiner\Domain\Service\ServiceRecord;
 use Mpwar\DataMiner\Domain\Service\ServiceRecordsCollection;
 use Mpwar\DataMiner\Domain\Service\ServiceVisitsRepository;
 
@@ -50,7 +51,14 @@ class Twitter extends Service
 
         $response = $this->client->get("search/tweets", $requestParameters);
 
-        $serviceRecordsCollection = new ServiceRecordsCollection($response->statuses);
+        $serviceRecordsCollection = new ServiceRecordsCollection();
+
+        foreach ($response->statuses as $tweet) {
+            $serviceRecordsCollection->add(
+                new ServiceRecord(json_encode($tweet))
+            );
+        }
+
         $serviceRecordsCollection->setLastRecordVisited(
             'max_id_str', $response->search_metadata->max_id_str
         );

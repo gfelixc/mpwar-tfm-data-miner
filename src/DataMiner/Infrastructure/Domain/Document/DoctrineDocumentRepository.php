@@ -2,16 +2,16 @@
 
 namespace Mpwar\DataMiner\Infrastructure\Domain\Document;
 
-use Doctrine\ORM\EntityRepository;
+use Doctrine\ODM\MongoDB\DocumentRepository;
 use Mpwar\DataMiner\Domain\Document\Document;
 use Mpwar\DataMiner\Domain\Document\DocumentsRepository;
 
-class DoctrineDocumentRepository extends EntityRepository implements DocumentsRepository
+class DoctrineDocumentRepository extends DocumentRepository implements DocumentsRepository
 {
-
     public function save(Document $document): void
     {
-        $entityManager = $this->getEntityManager();
-        $entityManager->persist($document);
+        $documentManager = $this->getDocumentManager();
+        $documentManager->persist($document);
+        $documentManager->flush();
     }
 }

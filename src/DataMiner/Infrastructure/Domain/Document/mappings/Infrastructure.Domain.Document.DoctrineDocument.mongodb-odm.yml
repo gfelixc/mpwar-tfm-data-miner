@@ -1,0 +1,14 @@
+Mpwar\DataMiner\Infrastructure\Domain\Document\DoctrineDocument:
+  repositoryClass: \Mpwar\DataMiner\Infrastructure\Domain\Document\DoctrineDocumentRepository
+  collection: raw_document
+  fields:
+    id:
+      type: string
+      id: true
+      strategy: NONE
+    keyword:
+      type: string
+    service:
+      type: string
+    content:
+      type: string

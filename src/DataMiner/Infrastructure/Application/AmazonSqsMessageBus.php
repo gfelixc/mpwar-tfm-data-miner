@@ -16,7 +16,7 @@ class AmazonSqsMessageBus implements MessageBus
         $this->queueUrl = $queueUrl;
     }
 
-    public function dispatch(string $message)
+    public function dispatch(string $message): void
     {
         $this->client->sendMessage(
             [

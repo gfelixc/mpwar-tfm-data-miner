@@ -23,24 +23,25 @@ class FindKeyword
      */
     private $documentsFactory;
     /**
-     * @var EventDispatcher
+     * @var MessageBus
      */
-    private $eventDispatcher;
+    private $messageBus;
 
     public function __construct(
         Service $service,
         DocumentsFactory $documentsFactory,
         DocumentsRepository $documentsRepository,
-        EventDispatcher $eventDispatcher
+        MessageBus $messageBus
     ) {
         $this->documentsRepository = $documentsRepository;
         $this->service = $service;
         $this->documentsFactory = $documentsFactory;
-        $this->eventDispatcher = $eventDispatcher;
+        $this->messageBus = $messageBus;
     }
 
     public function find(Keyword $keyword)
     {
+        echo 'Find Keyword -> '. $keyword . ' - ' . $this->service->serviceName()->value() . "\n";
         $serviceRecordsCollection = $this->service->find($keyword);
         /** @var ServiceRecord $record */
         foreach ($serviceRecordsCollection as $record) {
@@ -51,10 +52,19 @@ class FindKeyword
             );
 
             $this->documentsRepository->save($document);
-            $this->eventDispatcher->dispatch(
-                DocumentWasStoredEvent::NAME,
-                new DocumentWasStoredEvent($document)
-            );
+
+            $message = [
+                'eventName' => 'RawDocumentWasStored',
+                'occurredOn' => \DateTimeImmutable::createFromFormat(DATE_ATOM, 'now'),
+                'rawDocument' => [
+                    'id' => $document->id()->value(),
+                    'source' => $document->service()->value(),
+                    'keyword' => $document->keyword()->value(),
+                    'content' => json_decode($document->content()->value())
+                ]
+            ];
+
+            $this->messageBus->dispatch(json_encode($message));
         }
     }
 }

@@ -8,7 +8,8 @@
     "symfony/console": "^3.3",
     "aws/aws-sdk-php-silex": "^3.0",
     "symfony/yaml": "^3.3",
-    "dflydev/doctrine-orm-service-provider": "^2.0"
+    "alcaeus/mongo-php-adapter": "^1.1",
+    "saxulum/saxulum-doctrine-mongodb-odm-provider": "^2.3"
   },
   "autoload": {
     "psr-4": {
