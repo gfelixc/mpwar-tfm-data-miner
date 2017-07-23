@@ -6,9 +6,9 @@ use Mpwar\DataMiner\Domain\Keyword\Keyword;
 
 abstract class Service
 {
-
     private $serviceName;
     private $visitsRepository;
+
 
     public function __construct(
         ServiceName $serviceName,
@@ -62,7 +62,7 @@ abstract class Service
         ?LastRecordVisited $serviceVisit
     ): ServiceRecordsCollection;
 
-    private function serviceName(): ServiceName
+    public function serviceName(): ServiceName
     {
         return $this->serviceName;
     }

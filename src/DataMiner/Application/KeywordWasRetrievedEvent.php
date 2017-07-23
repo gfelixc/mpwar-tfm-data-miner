@@ -13,4 +13,12 @@ class KeywordWasRetrievedEvent
     {
         $this->keyword = $keyword;
     }
+
+    /**
+     * @return Keyword
+     */
+    public function keyword(): Keyword
+    {
+        return $this->keyword;
+    }
 }
