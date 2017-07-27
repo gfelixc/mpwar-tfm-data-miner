@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b788ff7b1893df628d599bdcffc9686",
+    "content-hash": "b77f547b777a07afbbc2f641d98cd53a",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -62,34 +62,33 @@
         },
         {
             "name": "alcaeus/mongo-php-adapter",
-            "version": "1.1.1",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alcaeus/mongo-php-adapter.git",
-                "reference": "64514c4e06fe9c86805347734f30ce92108720b2"
+                "reference": "db7ef240fc9de81cd093d4d7e401a30b79023196"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alcaeus/mongo-php-adapter/zipball/64514c4e06fe9c86805347734f30ce92108720b2",
-                "reference": "64514c4e06fe9c86805347734f30ce92108720b2",
+                "url": "https://api.github.com/repos/alcaeus/mongo-php-adapter/zipball/db7ef240fc9de81cd093d4d7e401a30b79023196",
+                "reference": "db7ef240fc9de81cd093d4d7e401a30b79023196",
                 "shasum": ""
             },
             "require": {
                 "ext-hash": "*",
-                "ext-mongodb": "^1.2.0",
                 "mongodb/mongodb": "^1.0.1",
-                "php": "^5.6 || ^7.0"
+                "php": "^5.5 || ^7.0"
             },
             "provide": {
-                "ext-mongo": "1.6.14"
+                "ext-mongo": "1.6.13"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7 || ^6.0"
+                "phpunit/phpunit": "^4.8 || ^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
@@ -122,20 +121,20 @@
                 "database",
                 "mongodb"
             ],
-            "time": "2017-06-30T09:38:02+00:00"
+            "time": "2016-07-03T16:16:40+00:00"
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.31.8",
+            "version": "3.32.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "9829a8183016df800110148b467179d67c434f90"
+                "reference": "ca8791495696a1620fe2275df4983d063627aba7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9829a8183016df800110148b467179d67c434f90",
-                "reference": "9829a8183016df800110148b467179d67c434f90",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ca8791495696a1620fe2275df4983d063627aba7",
+                "reference": "ca8791495696a1620fe2275df4983d063627aba7",
                 "shasum": ""
             },
             "require": {
@@ -202,7 +201,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-07-20T22:22:05+00:00"
+            "time": "2017-07-27T19:46:08+00:00"
         },
         {
             "name": "aws/aws-sdk-php-silex",
@@ -260,6 +259,59 @@
                 "silex"
             ],
             "time": "2016-05-25T20:30:40+00:00"
+        },
+        {
+            "name": "deralex/yaml-config-service-provider",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gfelixc/YamlConfigServiceProvider.git",
+                "reference": "ebda468797d9b11cd06cfed024f337365ea08c8e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gfelixc/YamlConfigServiceProvider/zipball/ebda468797d9b11cd06cfed024f337365ea08c8e",
+                "reference": "ebda468797d9b11cd06cfed024f337365ea08c8e",
+                "shasum": ""
+            },
+            "require": {
+                "silex/silex": "~2.1",
+                "symfony/yaml": "~3.3"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "@stable"
+            },
+            "suggest": {
+                "symfony/yaml": "~3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "DerAlex\\Silex": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Kluth",
+                    "email": "contact@alexanderkluth.com"
+                }
+            ],
+            "description": "Silex ServiceProvider for using YAML configuration files",
+            "keywords": [
+                "silex"
+            ],
+            "support": {
+                "source": "https://github.com/gfelixc/YamlConfigServiceProvider/tree/master"
+            },
+            "time": "2017-07-27 18:16:34"
         },
         {
             "name": "doctrine/annotations",
@@ -3771,7 +3823,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "deralex/yaml-config-service-provider": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

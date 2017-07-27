@@ -13,10 +13,10 @@ class DataMinerServiceProvider implements ServiceProviderInterface
         $app['service.visits.repository'] = new \Mpwar\DataMiner\Infrastructure\Domain\Service\FakeServiceVisitsRepository();
         $app['service.twitter'] = new \Mpwar\DataMiner\Domain\Service\SocialNetwork\Twitter(
             $app['service.visits.repository'],
-            $app['credential.twitter.consumer_key'],
-            $app['credential.twitter.consumer_secret'],
-            $app['credential.twitter.access_token'],
-            $app['credential.twitter.access_token_secret']
+            $app['config']['twitter.config']['consumer_key'],
+            $app['config']['twitter.config']['consumer_secret'],
+            $app['config']['twitter.config']['access_token'],
+            $app['config']['twitter.config']['access_token_secret']
         );
 
         $app['document.factory'] = new \Mpwar\DataMiner\Infrastructure\Domain\Document\DoctrineDocumentFactory();
@@ -26,7 +26,7 @@ class DataMinerServiceProvider implements ServiceProviderInterface
 
         $app['message_bus'] = new \Mpwar\DataMiner\Infrastructure\Application\AmazonSqsMessageBus(
             $app['aws']->createSqs(),
-            $app['mpwar.miner']['queue_url']
+            $app['config']['mpwar.miner']['queue_url']
         );
 
         $app['application.service.twitter'] = new \Mpwar\DataMiner\Application\FindKeyword(

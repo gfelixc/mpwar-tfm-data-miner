@@ -5,7 +5,7 @@ php_packages:
   - php7.1-cli
   - php7.1-curl
   - php7.1-mbstring
-  - php7.1-mongo
+  - php7.1-mongodb
   - php7.1-intl
   - php7.1-cgi
   - php7.1-fpm

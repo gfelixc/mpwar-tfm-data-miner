@@ -1,49 +1,21 @@
 <?php
 
-require_once __DIR__ . '/../../../../../vendor/autoload.php';
+$rootPath = __DIR__ . '/../../../../../';
+require_once $rootPath . 'vendor/autoload.php';
 
 $app = new Silex\Application();
 
-$credentials = \Symfony\Component\Yaml\Yaml::parse(
-    file_get_contents(__DIR__ . '/../../../../../resources/config/credentials.yml')
-);
-
-foreach ($credentials as $key => $value) {
-    $app[$key] = $value;
-}
-$config = \Symfony\Component\Yaml\Yaml::parse(
-    file_get_contents(__DIR__ . '/../../../../../resources/config/config.yml')
-);
-
-foreach ($config as $key => $value) {
-    $app[$key] = $value;
-}
+$app->register(new DerAlex\Silex\YamlConfigServiceProvider($rootPath . 'resources/config/config.yml'));
 
 $app->register(
-    new \Saxulum\DoctrineMongoDb\Provider\DoctrineMongoDbProvider,
-    [
-        "mongodb.options" => [
-            "server" => "mongodb://ec2-52-51-201-144.eu-west-1.compute.amazonaws.com:27017"
-        ],
-    ]
+    new \Saxulum\DoctrineMongoDb\Provider\DoctrineMongoDbProvider(),
+    ['mongodb.options' => $app['config']['mongodb.options']]
 );
 $app->register(
-    new Saxulum\DoctrineMongoDbOdm\Provider\DoctrineMongoDbOdmProvider,
-    [
-        "mongodbodm.proxies_dir" => "/storage/mongodb/proxies",
-        "mongodbodm.hydrator_dir" => "/storage/mongodb/hydrator",
-        "mongodbodm.dm.options" => [
-            "database" => "miner",
-            "mappings" => [
-                [
-                    "type" => "simple_yml",
-                    "namespace" => "Mpwar\DataMiner",
-                    "path" => __DIR__ . "/../../../../../src/DataMiner/Infrastructure/Domain/Document/mappings",
-                ]
-            ],
-        ],
-    ]
+    new \Saxulum\DoctrineMongoDbOdm\Provider\DoctrineMongoDbOdmProvider(),
+    $app['config']['mongodbodm.options']
 );
+$app['aws.config'] = $app['config']['aws.config'];
 $app->register(new \Aws\Silex\AwsServiceProvider());
 $app->register(
     new \Mpwar\DataMiner\Infrastructure\Ui\DataMinerServiceProvider()

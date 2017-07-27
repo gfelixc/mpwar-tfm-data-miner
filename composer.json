@@ -8,9 +8,18 @@
     "symfony/console": "^3.3",
     "aws/aws-sdk-php-silex": "^3.0",
     "symfony/yaml": "^3.3",
-    "alcaeus/mongo-php-adapter": "^1.1",
+    "alcaeus/mongo-php-adapter": "1.0.5",
+    "deralex/yaml-config-service-provider" : "dev-master",
+    "doctrine/instantiator": "1.0.5",
+    "doctrine/mongodb-odm": "^1.1",
     "saxulum/saxulum-doctrine-mongodb-odm-provider": "^2.3"
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:gfelixc/YamlConfigServiceProvider.git"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "Mpwar\\DataMiner\\": "src/DataMiner/"
@@ -28,5 +37,6 @@
   },
   "config": {
     "optimize-autoloader": true
-  }
+  },
+  "minimum-stability": "stable"
 }

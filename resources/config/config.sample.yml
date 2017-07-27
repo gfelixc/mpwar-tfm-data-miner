@@ -1,0 +1,28 @@
+twitter.config:
+  consumer_key: TWITTER_CONSUMER_SECRET
+  consumer_secret: TWITTER_CONSUMER_SECRET
+  access_token: TWITTER_ACCESS_TOKEN
+  access_token_secret: TWITTER_ACCESS_TOKEN_SECRET
+
+aws.config:
+  version: latest
+  region: eu-west-1
+  credentials:
+    key: AWS_KEY
+    secret: AWS_SECRET
+
+mpwar.miner:
+  queue_url: https://sqs.eu-west-1.amazonaws.com/486488213723/mpwar_miner
+
+mongodb.options:
+  server: mongodb://ec2-52-51-201-144.eu-west-1.compute.amazonaws.com:27017
+
+mongodbodm.options:
+  mongodbodm.proxies_dir: /storage/mongodb/proxies
+  mongodbodm.hydrator_dir: /storage/mongodb/hydrator
+  mongodbodm.dm.options:
+    database: miner
+    mappings:
+      - type: simple_yml
+        namespace: Mpwar\DataMiner
+        path: src/DataMiner/Infrastructure/Domain/Document/mappings
