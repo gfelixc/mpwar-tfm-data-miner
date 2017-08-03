@@ -9,7 +9,6 @@ abstract class Service
     private $serviceName;
     private $visitsRepository;
 
-
     public function __construct(
         ServiceName $serviceName,
         ServiceVisitsRepository $visitsRepository
@@ -29,41 +28,41 @@ abstract class Service
         $this->visitsRepository = $visitsRepository;
     }
 
-    private function visitsRepository(): ServiceVisitsRepository
-    {
-        return $this->visitsRepository;
-    }
-
     public function find(Keyword $keyword): ServiceRecordsCollection
     {
-        $lastVisit = $this->visitsRepository()->lastVisitWithService(
-            $keyword,
-            $this->serviceName()
-        );
+        $lastVisit = $this->visitsRepository()
+                          ->lastVisitWithService(
+                              $keyword,
+                              $this->serviceName()
+                          );
 
         $records = $this->findSince(
             $keyword,
             $lastVisit ? $lastVisit->lastRecordVisited() : null
         );
 
-        $this->visitsRepository()->registerVisit(
-            new ServiceVisit(
-                $this->serviceName(),
-                $keyword,
-                $records->lastRecordVisited()
-            )
-        );
+        $this->visitsRepository()
+             ->registerVisit(
+                 new ServiceVisit(
+                     $this->serviceName(), $keyword, $records->lastRecordVisited()
+                 )
+             );
 
         return $records;
+    }
+
+    private function visitsRepository(): ServiceVisitsRepository
+    {
+        return $this->visitsRepository;
+    }
+
+    public function serviceName(): ServiceName
+    {
+        return $this->serviceName;
     }
 
     abstract protected function findSince(
         Keyword $keyword,
         ?LastRecordVisited $serviceVisit
     ): ServiceRecordsCollection;
-
-    public function serviceName(): ServiceName
-    {
-        return $this->serviceName;
-    }
 }

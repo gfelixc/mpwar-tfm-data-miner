@@ -21,7 +21,7 @@ class DataMinerServiceProvider implements ServiceProviderInterface
 
         $app['document.factory'] = new \Mpwar\DataMiner\Infrastructure\Domain\Document\DoctrineDocumentFactory();
         $app['document.repository'] = $app['mongodbodm.dm']
-            ->getRepository('Mpwar\DataMiner\Infrastructure\Domain\Document\DoctrineDocument');
+            ->getRepository(\Mpwar\DataMiner\Infrastructure\Domain\Document\DoctrineDocument::class);
 
 
         $app['message_bus'] = new \Mpwar\DataMiner\Infrastructure\Application\AmazonSqsMessageBus(

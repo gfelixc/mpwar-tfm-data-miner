@@ -7,7 +7,6 @@ use Mpwar\DataMiner\Application\KeywordWasRetrievedEvent;
 use Mpwar\DataMiner\Application\Listeners\KeywordWasRetrievedEventListener;
 use Pimple\Container;
 
-
 class InMemoryEventDispatcher implements EventDispatcher
 {
     private $listeners;
@@ -26,22 +25,21 @@ class InMemoryEventDispatcher implements EventDispatcher
         );
     }
 
+    private function addListener($string, $array)
+    {
+        $this->listeners[$string] = $array;
+    }
 
     public function dispatch($eventName, $data)
     {
 
         echo 'Dispatching event:' . $eventName . "\n";
-        if(!key_exists($eventName, $this->listeners)){
+        if (!key_exists($eventName, $this->listeners)) {
             return;
         }
-        
+
         list($class, $method) = $this->listeners[$eventName];
 
         $class->$method($data);
-    }
-
-    private function addListener($string, $array)
-    {
-        $this->listeners[$string] = $array;
     }
 }
