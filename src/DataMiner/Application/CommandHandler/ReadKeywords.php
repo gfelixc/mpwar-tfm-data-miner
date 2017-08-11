@@ -1,10 +1,12 @@
 <?php
 
-namespace Mpwar\DataMiner\Application;
+namespace Mpwar\DataMiner\Application\CommandHandler;
 
+use Mpwar\DataMiner\Application\EventDispatcher;
+use Mpwar\DataMiner\Application\KeywordWasRetrievedEvent;
 use Mpwar\DataMiner\Domain\Keyword\KeywordsRepository;
 
-class DataMiner
+class ReadKeywords
 {
     private $keywordsRepository;
 

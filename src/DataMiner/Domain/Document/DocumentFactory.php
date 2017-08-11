@@ -5,7 +5,7 @@ namespace Mpwar\DataMiner\Domain\Document;
 use Mpwar\DataMiner\Domain\Keyword\Keyword;
 use Mpwar\DataMiner\Domain\Service\ServiceName;
 
-interface DocumentsFactory
+interface DocumentFactory
 {
 
     public function build(

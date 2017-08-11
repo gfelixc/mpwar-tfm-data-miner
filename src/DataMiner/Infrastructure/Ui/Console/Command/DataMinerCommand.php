@@ -2,7 +2,7 @@
 
 namespace Mpwar\DataMiner\Infrastructure\Ui\Console\Command;
 
-use Mpwar\DataMiner\Application\DataMiner;
+use Mpwar\DataMiner\Application\CommandHandler\ReadKeywords;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -11,7 +11,7 @@ class DataMinerCommand extends Command
 {
     private $dataMiner;
 
-    public function __construct(DataMiner $dataMiner)
+    public function __construct(ReadKeywords $dataMiner)
     {
         parent::__construct();
         $this->dataMiner = $dataMiner;

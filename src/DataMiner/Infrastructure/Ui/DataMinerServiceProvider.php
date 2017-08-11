@@ -29,7 +29,7 @@ class DataMinerServiceProvider implements ServiceProviderInterface
             $app['config']['mpwar.miner']['queue_url']
         );
 
-        $app['application.service.twitter'] = new \Mpwar\DataMiner\Application\FindKeyword(
+        $app['application.service.twitter'] = new \Mpwar\DataMiner\Application\CommandHandler\FindKeyword(
             $app['service.twitter'],
             $app['document.factory'],
             $app['document.repository'],
@@ -41,7 +41,7 @@ class DataMinerServiceProvider implements ServiceProviderInterface
         );
 
         $app['event.dispatcher'] = new \Mpwar\DataMiner\Infrastructure\Application\InMemoryEventDispatcher($app);
-        $app['application.data_miner'] = new \Mpwar\DataMiner\Application\DataMiner(
+        $app['application.data_miner'] = new \Mpwar\DataMiner\Application\CommandHandler\ReadKeywords(
             $app['keywords.repository'],
             $app['event.dispatcher']
         );

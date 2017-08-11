@@ -2,7 +2,7 @@
 
 namespace Mpwar\DataMiner\Application\Listeners;
 
-use Mpwar\DataMiner\Application\FindKeyword;
+use Mpwar\DataMiner\Application\CommandHandler\FindKeyword;
 use Mpwar\DataMiner\Application\KeywordWasRetrievedEvent;
 
 class KeywordWasRetrievedEventListener

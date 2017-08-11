@@ -2,7 +2,7 @@
 
 namespace Mpwar\DataMiner\Domain\Document;
 
-interface DocumentsRepository
+interface DocumentRepository
 {
 
     public function save(Document $document): void;

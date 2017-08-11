@@ -3,7 +3,7 @@
 namespace Mpwar\DataMiner\Test\Application;
 
 use Mockery\Mock;
-use Mpwar\DataMiner\Application\DataMiner;
+use Mpwar\DataMiner\Application\CommandHandler\ReadKeywords;
 use Mpwar\DataMiner\Application\EventDispatcher;
 use Mpwar\DataMiner\Domain\Keyword\KeywordsRepository;
 use Mpwar\DataMiner\Application\KeywordWasRetrievedEvent;
@@ -17,7 +17,7 @@ class DataMinerTest extends UnitTestCase
     private $keywordsRepository;
     /** @var  Mock|EventDispatcher */
     private $eventDispatcher;
-    /** @var  DataMiner */
+    /** @var  ReadKeywords */
     private $dataMiner;
 
     /**
@@ -70,7 +70,7 @@ class DataMinerTest extends UnitTestCase
         $this->keywordsRepository = $this->mock(KeywordsRepository::class);
         $this->eventDispatcher    = $this->mock(EventDispatcher::class);
 
-        $this->dataMiner = new DataMiner(
+        $this->dataMiner = new ReadKeywords(
             $this->keywordsRepository, $this->eventDispatcher
         );
     }
