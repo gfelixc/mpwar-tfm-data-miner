@@ -4,7 +4,7 @@ namespace Mpwar\DataMiner\Domain\DataType;
 
 abstract class StringValueObject
 {
-    private $value;
+    protected $value;
 
     public function __construct(string $value)
     {
@@ -21,7 +21,7 @@ abstract class StringValueObject
         return $this->value();
     }
 
-    private function setValue(string $value): void
+    protected function setValue(string $value): void
     {
         $this->value = $value;
     }

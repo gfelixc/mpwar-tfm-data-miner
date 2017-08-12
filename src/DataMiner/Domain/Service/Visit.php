@@ -4,7 +4,7 @@ namespace Mpwar\DataMiner\Domain\Service;
 
 use Mpwar\DataMiner\Domain\Keyword\Keyword;
 
-class ServiceVisit
+class Visit
 {
     private $serviceName;
     private $keyword;

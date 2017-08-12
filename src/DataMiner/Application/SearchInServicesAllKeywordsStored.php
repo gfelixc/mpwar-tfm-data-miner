@@ -1,19 +1,21 @@
 <?php
 
-namespace Mpwar\DataMiner\Application\CommandHandler;
+namespace Mpwar\DataMiner\Application;
 
-use Mpwar\DataMiner\Application\Command\FindKeywordCommand;
-use Mpwar\DataMiner\Application\MessageBus;
 use Mpwar\DataMiner\Domain\Document\DocumentFactory;
 use Mpwar\DataMiner\Domain\Document\DocumentRepository;
 use Mpwar\DataMiner\Domain\Keyword\Keyword;
+use Mpwar\DataMiner\Domain\Keyword\KeywordsRepository;
 use Mpwar\DataMiner\Domain\Service\Service;
 use Mpwar\DataMiner\Domain\Service\Visit;
 use Mpwar\DataMiner\Domain\Service\ServiceVisitsRepository;
 
-class FindKeyword
+class SearchInServicesAllKeywordsStored
 {
-
+    /**
+     * @var KeywordsRepository
+     */
+    private $keywordsRepository;
     /**
      * @var Service
      */
@@ -40,15 +42,14 @@ class FindKeyword
         $this->service            = $service;
         $this->visitsRepository   = $visitsRepository;
         $this->documentFactory    = $documentFactory;
-        $this->documentRepository = $documentRepository
+        $this->documentRepository = $documentRepository;
     }
 
-    public function execute(FindKeywordCommand $command): void
+    public function find(Keyword $keyword)
     {
-        $keyword = new Keyword($command->keyword());
-
         $lastVisitByKeyword       = $this->visitsRepository->lastByKeyword($keyword, $this->service->name());
-        $serviceRecordsCollection = $this->service->findSince($keyword, $lastVisitByKeyword);
+        $lastRecordVisited        = ($lastVisitByKeyword) ? $lastVisitByKeyword->lastRecordVisited() : null;
+        $serviceRecordsCollection = $this->service->findSince($keyword, $lastRecordVisited);
 
         if ($serviceRecordsCollection->lastRecordVisited()) {
             $this->visitsRepository->registerVisit(
@@ -58,10 +59,6 @@ class FindKeyword
             );
         }
 
-        foreach ($serviceRecordsCollection as $result) {
-            $parsedResult = $this->service->parse($result);
-            $document     = $this->documentFactory->build($this->service->name(), $keyword, $parsedResult);
-            $this->documentRepository->save($document);
-        }
+        return $serviceRecordsCollection;
     }
 }

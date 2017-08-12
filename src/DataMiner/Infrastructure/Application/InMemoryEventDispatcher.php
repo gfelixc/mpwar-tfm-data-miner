@@ -3,7 +3,7 @@
 namespace Mpwar\DataMiner\Infrastructure\Application;
 
 use Mpwar\DataMiner\Application\EventDispatcher;
-use Mpwar\DataMiner\Application\KeywordWasRetrievedEvent;
+use Mpwar\DataMiner\Domain\Keyword\KeywordWasRetrievedEvent;
 use Mpwar\DataMiner\Application\Listeners\KeywordWasRetrievedEventListener;
 use Pimple\Container;
 

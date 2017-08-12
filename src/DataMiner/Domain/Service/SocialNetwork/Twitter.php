@@ -8,7 +8,8 @@ use Mpwar\DataMiner\Domain\Service\LastRecordVisited;
 use Mpwar\DataMiner\Domain\Service\Service;
 use Mpwar\DataMiner\Domain\Service\ServiceName;
 use Mpwar\DataMiner\Domain\Service\ServiceRecord;
-use Mpwar\DataMiner\Domain\Service\ServiceRecordsCollection;
+use Mpwar\DataMiner\Domain\Service\ResultCollection;
+use Mpwar\DataMiner\Domain\Service\Visit;
 use Mpwar\DataMiner\Domain\Service\ServiceVisitsRepository;
 
 class Twitter extends Service
@@ -25,42 +26,39 @@ class Twitter extends Service
         $access_token_secret
     ) {
         parent::__construct(
-            new ServiceName(self::SERVICE_NAME),
-            $visitsRepository
+            new ServiceName(self::SERVICE_NAME)
         );
 
         $this->client = new TwitterOAuth(
-            $consumer_key,
-            $consumer_secret,
-            $access_token,
-            $access_token_secret
+            $consumer_key, $consumer_secret, $access_token, $access_token_secret
         );
     }
 
-    protected function findSince(
+    public function findSince(
         Keyword $keyword,
-        ?LastRecordVisited $serviceVisit
-    ): ServiceRecordsCollection {
+        ?Visit $serviceVisit
+    ): ResultCollection {
 
-        $requestParameters = [];
+        $lastRecordVisited = ($serviceVisit) ? $serviceVisit->lastRecordVisited() : null;
+
+        $requestParameters      = [];
         $requestParameters['q'] = $keyword->value();
 
-        if ($serviceVisit) {
-            $requestParameters['since_id'] = $serviceVisit->value();
+        if ($lastRecordVisited) {
+            $requestParameters['since_id'] = $lastRecordVisited->value();
         }
 
         $response = $this->client->get("search/tweets", $requestParameters);
 
-        $serviceRecordsCollection = new ServiceRecordsCollection();
+        $serviceRecordsCollection = new ResultCollection();
 
         foreach ($response->statuses as $tweet) {
-            $serviceRecordsCollection->add(
-                new ServiceRecord(json_encode($tweet))
-            );
+            $serviceRecordsCollection->add($this->createServiceRecord($keyword, json_encode($tweet)));
         }
 
         $serviceRecordsCollection->setLastRecordVisited(
-            'max_id_str', $response->search_metadata->max_id_str
+            'max_id_str',
+            $response->search_metadata->max_id_str
         );
 
         return $serviceRecordsCollection;

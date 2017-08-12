@@ -2,19 +2,16 @@
 
 namespace Mpwar\DataMiner\Domain\Service;
 
+use Mpwar\DataMiner\Domain\DomainEventPublisher;
 use Mpwar\DataMiner\Domain\Keyword\Keyword;
 
 abstract class Service
 {
     private $serviceName;
-    private $visitsRepository;
-
     public function __construct(
-        ServiceName $serviceName,
-        ServiceVisitsRepository $visitsRepository
+        ServiceName $serviceName
     ) {
         $this->setServiceName($serviceName);
-        $this->setVisitsRepository($visitsRepository);
     }
 
     private function setServiceName(ServiceName $serviceName): void
@@ -22,47 +19,29 @@ abstract class Service
         $this->serviceName = $serviceName;
     }
 
-    private function setVisitsRepository(
-        ServiceVisitsRepository $visitsRepository
-    ): void {
-        $this->visitsRepository = $visitsRepository;
-    }
-
-    public function find(Keyword $keyword): ServiceRecordsCollection
-    {
-        $lastVisit = $this->visitsRepository()
-                          ->lastVisitWithService(
-                              $keyword,
-                              $this->serviceName()
-                          );
-
-        $records = $this->findSince(
-            $keyword,
-            $lastVisit ? $lastVisit->lastRecordVisited() : null
-        );
-
-        $this->visitsRepository()
-             ->registerVisit(
-                 new ServiceVisit(
-                     $this->serviceName(), $keyword, $records->lastRecordVisited()
-                 )
-             );
-
-        return $records;
-    }
-
-    private function visitsRepository(): ServiceVisitsRepository
-    {
-        return $this->visitsRepository;
-    }
-
-    public function serviceName(): ServiceName
+    public function name(): ServiceName
     {
         return $this->serviceName;
     }
 
-    abstract protected function findSince(
+    abstract public function findSince(
         Keyword $keyword,
-        ?LastRecordVisited $serviceVisit
-    ): ServiceRecordsCollection;
+        ?Visit $serviceVisit
+    ): ResultCollection;
+
+    protected function createServiceRecord(Keyword $keyword, string $data): ServiceRecord
+    {
+
+        $serviceRecord = new ServiceRecord($data);
+
+        DomainEventPublisher::instance()->publish(
+            new ResultWasFoundEvent(
+                $this->name(),
+                $keyword->value(),
+                $data
+            )
+        );
+
+        return $serviceRecord;
+    }
 }

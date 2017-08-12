@@ -4,7 +4,7 @@ namespace Mpwar\DataMiner\Domain\Service;
 
 use Mpwar\DataMiner\Domain\DataType\ArrayCollection;
 
-class ServiceRecordsCollection extends ArrayCollection
+class ResultCollection extends ArrayCollection
 {
     private $lastRecordVisited;
 

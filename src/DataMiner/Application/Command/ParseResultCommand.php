@@ -2,7 +2,7 @@
 
 namespace Mpwar\DataMiner\Application\Command;
 
-class ParseRecordCommand
+class ParseResultCommand
 {
     /**
      * @return string
@@ -15,7 +15,7 @@ class ParseRecordCommand
     /**
      * @return string
      */
-    public function record(): string
+    public function result(): string
     {
         return $this->record;
     }

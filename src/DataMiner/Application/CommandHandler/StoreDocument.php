@@ -28,9 +28,9 @@ class StoreDocument
     public function execute(StoreDocumentCommand $command)
     {
         $document = $this->documentFactory->build(
-            1,
-            2,
-            3
+            $command->service(),
+            $command->keyword(),
+            $command->document()
         );
 
         $this->documentRepository->save($document);

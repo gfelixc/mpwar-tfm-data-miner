@@ -7,7 +7,7 @@ use Mpwar\DataMiner\Domain\Keyword\Keyword;
 interface ServiceVisitsRepository
 {
 
-    public function lastVisitWithService(Keyword $keyword, ServiceName $service): ?ServiceVisit;
+    public function lastByKeyword(Keyword $keyword, ServiceName $service): ?Visit;
 
-    public function registerVisit(ServiceVisit $visit): void;
+    public function registerVisit(Visit $visit): void;
 }
