@@ -2,7 +2,7 @@
 
 namespace Mpwar\DataMiner\Application;
 
-use Mpwar\DataMiner\Domain\Document\Document;
+use Mpwar\DataMiner\Domain\Document;
 
 class DocumentWasStoredEvent
 {

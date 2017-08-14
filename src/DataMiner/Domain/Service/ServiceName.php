@@ -2,7 +2,7 @@
 
 namespace Mpwar\DataMiner\Domain\Service;
 
-use Mpwar\DataMiner\Domain\DataType\StringValueObject;
+use AntPack\DataTypes\Common\StringValueObject;
 
 class ServiceName extends StringValueObject
 {

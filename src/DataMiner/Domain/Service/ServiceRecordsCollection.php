@@ -2,7 +2,7 @@
 
 namespace Mpwar\DataMiner\Domain\Service;
 
-use Mpwar\DataMiner\Domain\DataType\ArrayCollection;
+use AntPack\DataTypes\Common\ArrayCollection;
 
 class ServiceRecordsCollection extends ArrayCollection
 {

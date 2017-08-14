@@ -2,7 +2,7 @@
 
 namespace Mpwar\DataMiner\Test\Infrastructure;
 
-use Mpwar\DataMiner\Domain\Document\DocumentId;
+use Mpwar\DataMiner\Domain\DocumentId;
 use Mpwar\Test\Infrastructure\Stub;
 
 class DocumentIdStub extends Stub

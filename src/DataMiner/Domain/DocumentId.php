@@ -1,6 +1,6 @@
 <?php
 
-namespace Mpwar\DataMiner\Domain\Document;
+namespace Mpwar\DataMiner\Domain;
 
 use Mpwar\DataMiner\Domain\DataType\Uuid;
 

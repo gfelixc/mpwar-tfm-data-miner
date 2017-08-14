@@ -12,10 +12,10 @@ aws.config:
     secret: AWS_SECRET
 
 mpwar.miner:
-  queue_url: https://sqs.eu-west-1.amazonaws.com/486488213723/mpwar_miner
+  queue_url: AMAZON_SQS_URL
 
 mongodb.options:
-  server: mongodb://ec2-52-51-201-144.eu-west-1.compute.amazonaws.com:27017
+  server: MONGO_URL
 
 mongodbodm.options:
   mongodbodm.proxies_dir: /storage/mongodb/proxies

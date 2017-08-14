@@ -12,12 +12,17 @@
     "deralex/yaml-config-service-provider" : "dev-master",
     "doctrine/instantiator": "1.0.5",
     "doctrine/mongodb-odm": "^1.1",
-    "saxulum/saxulum-doctrine-mongodb-odm-provider": "^2.3"
+    "saxulum/saxulum-doctrine-mongodb-odm-provider": "^2.3",
+    "antpackio/antpack-types": "dev-master"
   },
   "repositories": [
     {
       "type": "vcs",
       "url": "git@github.com:gfelixc/YamlConfigServiceProvider.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:antpackio/antpack-types.git"
     }
   ],
   "autoload": {

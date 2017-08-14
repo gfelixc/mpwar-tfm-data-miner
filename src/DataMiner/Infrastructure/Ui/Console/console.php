@@ -13,8 +13,11 @@ $console->setHelperSet(
 );
 $console->addCommands(
     [
-        new \Mpwar\DataMiner\Infrastructure\Ui\Console\Command\DataMinerCommand(
-            $app['application.data_miner']
+//        new \Mpwar\DataMiner\Infrastructure\Ui\Console\Command\DataMinerCommand(
+//            $app['application.find_keyword']
+//        ),
+        new \Mpwar\DataMiner\Infrastructure\Ui\Console\Command\FindKeywordCommand(
+            $app['application.find_keyword']
         ),
         new \Doctrine\ODM\MongoDB\Tools\Console\Command\Schema\CreateCommand(),
         new \Doctrine\ODM\MongoDB\Tools\Console\Command\Schema\DropCommand(),

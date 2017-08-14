@@ -1,14 +1,26 @@
 Mpwar\DataMiner\Infrastructure\Domain\Document\DoctrineDocument:
   repositoryClass: \Mpwar\DataMiner\Infrastructure\Domain\Document\DoctrineDocumentRepository
-  collection: raw_document
+  collection: document
   fields:
     id:
       type: string
       id: true
       strategy: NONE
-    keyword:
-      type: string
-    service:
-      type: string
-    content:
-      type: string
+    source:
+      type: SourceType
+    language:
+      type: LanguageType
+    keywordCollection:
+      type: KeywordCollectionType
+    author:
+      type: AuthorType
+    linkCollection:
+      type: LinkCollectionType
+    hashtagCollection:
+      type: HashtagCollectionType
+    textCollection:
+      type: TextCollectionType
+    imageCollection:
+      type: ImageCollectionType
+    createdAt:
+      type: CreatedAtType
