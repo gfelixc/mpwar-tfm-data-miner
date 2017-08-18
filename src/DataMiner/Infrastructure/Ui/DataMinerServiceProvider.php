@@ -3,8 +3,8 @@
 namespace Mpwar\DataMiner\Infrastructure\Ui;
 
 use Doctrine\ODM\MongoDB\Types\Type;
-use Mpwar\DataMiner\Application\DocumentToArray;
-use Mpwar\DataMiner\Application\StoreSearchResult;
+use Mpwar\DataMiner\Infrastructure\Application\DocumentToArray;
+use Mpwar\DataMiner\Application\Service\StoreSearchResult;
 use Mpwar\DataMiner\Infrastructure\Persistence\AuthorType;
 use Mpwar\DataMiner\Infrastructure\Persistence\CreatedAtType;
 use Mpwar\DataMiner\Infrastructure\Persistence\HashtagCollectionType;
@@ -32,7 +32,6 @@ class DataMinerServiceProvider implements ServiceProviderInterface
         Type::addType('TextCollectionType', TextCollectionType::class);
 
         $app['document.factory'] = new \Mpwar\DataMiner\Infrastructure\Domain\Document\DoctrineDocumentFactory();
-        $app['keywords.repository'] = new \Mpwar\DataMiner\Infrastructure\Domain\Keyword\InMemoryKeywordsRepository();
         $app['service.visits.repository'] = new \Mpwar\DataMiner\Infrastructure\Domain\Service\FakeServiceVisitsRepository();
         $app['service.twitter'] = new \Mpwar\DataMiner\Domain\Service\SocialNetwork\Twitter(
             $app['service.visits.repository'],
@@ -59,20 +58,11 @@ class DataMinerServiceProvider implements ServiceProviderInterface
             $app['document.repository']
         );
 
-        $app['application.find_keyword'] = new \Mpwar\DataMiner\Application\FindKeyword(
+        $app['application.find_keyword'] = new \Mpwar\DataMiner\Application\Service\FindKeyword(
             $app['service.twitter'],
             $app['application.store_search_result'],
             $app['document.transformer'],
             $app['message_bus']
-        );
-
-        $app['application.send_documents'] = new \Mpwar\DataMiner\Application\SendDocumentsToMessageBus(
-            $app['message_bus']
-        );
-
-        $app['application.data_miner'] = new \Mpwar\DataMiner\Application\DataMiner(
-            $app['keywords.repository'],
-            $app['event.dispatcher']
         );
     }
 }

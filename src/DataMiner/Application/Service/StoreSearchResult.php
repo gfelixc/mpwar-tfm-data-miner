@@ -1,6 +1,6 @@
 <?php
 
-namespace Mpwar\DataMiner\Application;
+namespace Mpwar\DataMiner\Application\Service;
 
 use Mpwar\DataMiner\Domain\DocumentRepository;
 use Mpwar\DataMiner\Domain\Keyword;

@@ -1,7 +1,8 @@
 <?php
 
-namespace Mpwar\DataMiner\Application;
+namespace Mpwar\DataMiner\Infrastructure\Application;
 
+use Mpwar\DataMiner\Application\DocumentTransformer;
 use Mpwar\DataMiner\Domain\Document;
 use Mpwar\DataMiner\Domain\Hashtag;
 use Mpwar\DataMiner\Domain\HashtagCollection;

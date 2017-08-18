@@ -2,7 +2,7 @@
 
 namespace Mpwar\DataMiner\Infrastructure\Ui\Console\Command;
 
-use Mpwar\DataMiner\Application\FindKeyword;
+use Mpwar\DataMiner\Application\Service\FindKeyword;
 use Mpwar\DataMiner\Domain\Keyword;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

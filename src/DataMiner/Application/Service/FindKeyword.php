@@ -1,7 +1,10 @@
 <?php
 
-namespace Mpwar\DataMiner\Application;
+namespace Mpwar\DataMiner\Application\Service;
 
+use Mpwar\DataMiner\Application\DocumentTransformer;
+use Mpwar\DataMiner\Application\MessageBus;
+use Mpwar\DataMiner\Application\Service\StoreSearchResult;
 use Mpwar\DataMiner\Domain\Keyword;
 use Mpwar\DataMiner\Domain\Service\Service;
 use Mpwar\DataMiner\Domain\Service\ServiceRecord;
