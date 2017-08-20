@@ -1,3 +1,6 @@
+addons:
+  code_climate:
+    repo_token: ffe95eb869b09c857a1d001c8c47e606326dd85385fa81c4013b9c4265222176
 language: php
 php:
   - '7.1'
@@ -9,3 +12,5 @@ install:
   - composer install
 script:
   - phpunit
+after_success:
+  - vendor/bin/test-reporter
