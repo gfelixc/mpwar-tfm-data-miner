@@ -7,16 +7,19 @@
         beStrictAboutChangesToGlobalState="true">
     <testsuites>
         <testsuite name="behaviour">
-            <directory>src/Test</directory>
             <directory>src/*/Test</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">src/</directory>
+            <directory suffix=".php">src/DataMiner/Application</directory>
+            <directory suffix=".php">src/DataMiner/Domain</directory>
+            <directory suffix=".php">src/DataMiner/Infrastructure</directory>
             <exclude>
                 <directory>src/Test</directory>
-                <directory>src/*/Test</directory>
+                <directory>src/DataMiner/Test</directory>
+                <directory>src/DataMiner/Infrastructure/Persistence</directory>
+                <directory>src/DataMiner/Infrastructure/Ui</directory>
             </exclude>
         </whitelist>
     </filter>

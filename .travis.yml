@@ -4,8 +4,10 @@ addons:
 language: php
 php:
   - '7.1'
-sudo: false
+sudo: required
 dist: trusty
+services:
+  - docker
 before_install:
   - phpenv config-add resources/php.ini
 install:
@@ -14,3 +16,5 @@ script:
   - phpunit --coverage-clover build/logs/clover.xml
 after_success:
   - vendor/bin/test-reporter
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker build -t gfelixc/data-miner .

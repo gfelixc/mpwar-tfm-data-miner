@@ -11,4 +11,4 @@ RUN apt-get update && apt-get install -y \
 COPY . /usr/src/dataminer
 WORKDIR /usr/src/dataminer
 
-CMD [ "bash"]
+ENTRYPOINT ["bin/console"]
