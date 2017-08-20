@@ -2,14 +2,14 @@ engines:
   phpcodesniffer:
     enabled: true
     config:
-    	standard: "PSR1,PSR2"
+      standard: "PSR1,PSR2"
   phpmd:
     enabled: true
     config:
       file_extensions: "php"
       rulesets: "cleancode,codesize,controversial,design,naming,unusedcode"
   duplication:
-  	enabled: true
+    enabled: true
     config:
       languages:
       - php:
