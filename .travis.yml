@@ -8,7 +8,6 @@ sudo: false
 dist: trusty
 before_install:
   - phpenv config-add resources/php.ini
-  - apt-get install php-xml
 install:
   - composer install
 script:
