@@ -32,14 +32,14 @@ class DataMinerServiceProvider implements ServiceProviderInterface
         Type::addType('TextCollectionType', TextCollectionType::class);
 
         $app['document.factory'] = new \Mpwar\DataMiner\Infrastructure\Domain\Document\DoctrineDocumentFactory();
-        $app['service.visits.repository'] = new \Mpwar\DataMiner\Infrastructure\Domain\Service\FakeServiceVisitsRepository();
-        $app['service.twitter'] = new \Mpwar\DataMiner\Domain\Service\SocialNetwork\Twitter(
-            $app['service.visits.repository'],
-            $app['document.factory'],
+        $app['finder.twitter'] = new \Mpwar\DataMiner\Domain\Service\SocialNetwork\TwitterFinderService(
             $app['config']['twitter.config']['consumer_key'],
             $app['config']['twitter.config']['consumer_secret'],
             $app['config']['twitter.config']['access_token'],
             $app['config']['twitter.config']['access_token_secret']
+        );
+        $app['parser.twitter'] = new \Mpwar\DataMiner\Domain\Service\SocialNetwork\TwitterParserService(
+            $app['document.factory']
         );
 
         $app['document.repository'] = $app['mongodbodm.dm']
@@ -54,12 +54,12 @@ class DataMinerServiceProvider implements ServiceProviderInterface
         $app['document.transformer'] = new DocumentToArray();
 
         $app['application.store_search_result'] = new StoreSearchResult(
-            $app['service.twitter'],
+            $app['parser.twitter'],
             $app['document.repository']
         );
 
         $app['application.find_keyword'] = new \Mpwar\DataMiner\Application\Service\FindKeyword(
-            $app['service.twitter'],
+            $app['finder.twitter'],
             $app['application.store_search_result'],
             $app['document.transformer'],
             $app['message_bus']

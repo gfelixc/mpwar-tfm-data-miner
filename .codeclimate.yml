@@ -11,11 +11,12 @@ engines:
   duplication:
   	enabled: true
     config:
-    	languages:
-      - php
+      languages:
+      - php:
 ratings:
   paths:
-  - src/**
+  - "src/**.php"
   - "**.php"
 exclude_paths:
 - "**/vendor/**/*"
+- "**/Test/**/*"

@@ -129,12 +129,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/antpackio/antpack-types.git",
-                "reference": "b1b9003c78cc6ba1d7657e17f1ba4aee26f5d401"
+                "reference": "7a0b595492a148d6ef92fcba6c80ce9b9da05e49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/antpackio/antpack-types/zipball/b1b9003c78cc6ba1d7657e17f1ba4aee26f5d401",
-                "reference": "b1b9003c78cc6ba1d7657e17f1ba4aee26f5d401",
+                "url": "https://api.github.com/repos/antpackio/antpack-types/zipball/7a0b595492a148d6ef92fcba6c80ce9b9da05e49",
+                "reference": "7a0b595492a148d6ef92fcba6c80ce9b9da05e49",
                 "shasum": ""
             },
             "require": {
@@ -161,20 +161,20 @@
                 "source": "https://github.com/antpackio/antpack-types/tree/master",
                 "issues": "https://github.com/antpackio/antpack-types/issues"
             },
-            "time": "2017-08-14 21:57:22"
+            "time": "2017-08-20 18:16:04"
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.33.0",
+            "version": "3.33.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "980351b9468d85fd077e74e696ccf14d3f5b631e"
+                "reference": "2820644f411fa261f126727c1c00de15227b9520"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/980351b9468d85fd077e74e696ccf14d3f5b631e",
-                "reference": "980351b9468d85fd077e74e696ccf14d3f5b631e",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2820644f411fa261f126727c1c00de15227b9520",
+                "reference": "2820644f411fa261f126727c1c00de15227b9520",
                 "shasum": ""
             },
             "require": {
@@ -241,7 +241,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-08-14T19:22:37+00:00"
+            "time": "2017-08-18T18:04:40+00:00"
         },
         {
             "name": "aws/aws-sdk-php-silex",
@@ -889,16 +889,16 @@
         },
         {
             "name": "doctrine/mongodb-odm",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/mongodb-odm.git",
-                "reference": "1775be6551c4456edf30b543a6d3f9cb5442bf05"
+                "reference": "748df0da92f6b860fceac89cde1181fda2c26e78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/mongodb-odm/zipball/1775be6551c4456edf30b543a6d3f9cb5442bf05",
-                "reference": "1775be6551c4456edf30b543a6d3f9cb5442bf05",
+                "url": "https://api.github.com/repos/doctrine/mongodb-odm/zipball/748df0da92f6b860fceac89cde1181fda2c26e78",
+                "reference": "748df0da92f6b860fceac89cde1181fda2c26e78",
                 "shasum": ""
             },
             "require": {
@@ -969,7 +969,7 @@
                 "odm",
                 "persistence"
             ],
-            "time": "2017-05-13T18:47:53+00:00"
+            "time": "2017-08-19T18:49:49+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2115,16 +2115,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.4.0",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "f29dca382a6485c3cbe6379f0c61230167681937"
+                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/f29dca382a6485c3cbe6379f0c61230167681937",
-                "reference": "f29dca382a6485c3cbe6379f0c61230167681937",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
+                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
                 "shasum": ""
             },
             "require": {
@@ -2136,7 +2136,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -2170,7 +2170,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-09T14:24:12+00:00"
+            "time": "2017-06-14T15:44:48+00:00"
         },
         {
             "name": "symfony/routing",
@@ -2364,33 +2364,35 @@
                 "codeclimate",
                 "coverage"
             ],
-            "time": "2017-06-01T13:19:55+00:00"
+            "time": "2017-06-01 13:19:55"
         },
         {
             "name": "fzaninotto/faker",
-            "version": "v1.6.0",
+            "version": "v1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123"
+                "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/44f9a286a04b80c76a4e5fb7aad8bb539b920123",
-                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/d3ed4cc37051c1ca52d22d76b437d14809fc7e0d",
+                "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3|^7.0"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
                 "ext-intl": "*",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~1.5"
+                "phpunit/phpunit": "^4.0 || ^5.0",
+                "squizlabs/php_codesniffer": "^1.5"
             },
             "type": "library",
             "extra": {
-                "branch-alias": []
+                "branch-alias": {
+                    "dev-master": "1.8-dev"
+                }
             },
             "autoload": {
                 "psr-4": {
@@ -2412,7 +2414,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-04-29T12:21:54+00:00"
+            "time": "2017-08-15T16:48:10+00:00"
         },
         {
             "name": "guzzle/guzzle",
@@ -3282,16 +3284,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "ecb0b2cdaa0add708fe6f329ef65ae0c5225130b"
+                "reference": "9a02332089ac48e704c70f6cefed30c224e3c0b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/ecb0b2cdaa0add708fe6f329ef65ae0c5225130b",
-                "reference": "ecb0b2cdaa0add708fe6f329ef65ae0c5225130b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/9a02332089ac48e704c70f6cefed30c224e3c0b0",
+                "reference": "9a02332089ac48e704c70f6cefed30c224e3c0b0",
                 "shasum": ""
             },
             "require": {
@@ -3327,7 +3329,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-08-03T14:17:41+00:00"
+            "time": "2017-08-20T05:47:52+00:00"
         },
         {
             "name": "phpunit/phpunit",

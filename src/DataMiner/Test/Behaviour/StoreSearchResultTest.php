@@ -1,11 +1,11 @@
 <?php
 
-namespace Mpwar\DataMiner\Test\Application;
+namespace Mpwar\DataMiner\Test\Behaviour;
 
 use Mockery\Mock;
 use Mpwar\DataMiner\Application\Service\StoreSearchResult;
 use Mpwar\DataMiner\Domain\DocumentRepository;
-use Mpwar\DataMiner\Domain\Service\Service;
+use Mpwar\DataMiner\Domain\Service\ParserService;
 use Mpwar\DataMiner\Test\Infrastructure\DocumentStub;
 use Mpwar\DataMiner\Test\Infrastructure\KeywordStub;
 use Mpwar\DataMiner\Test\Infrastructure\ServiceRecordStub;
@@ -14,7 +14,7 @@ use Mpwar\Test\Infrastructure\UnitTestCase;
 class StoreSearchResultTest extends UnitTestCase
 {
     /**
-     * @return Mock|Service
+     * @return Mock|ParserService
      */
     public function service()
     {
@@ -36,7 +36,7 @@ class StoreSearchResultTest extends UnitTestCase
     {
         return $this->storeSearchResult;
     }
-    /** @var  Mock|Service */
+    /** @var  Mock|ParserService */
     private $service;
     /** @var  Mock|DocumentRepository */
     private $documentRepository;
@@ -47,7 +47,7 @@ class StoreSearchResultTest extends UnitTestCase
     {
         parent::setUp();
 
-        $this->service = $this->mock(Service::class);
+        $this->service = $this->mock(ParserService::class);
         $this->documentRepository = $this->mock(DocumentRepository::class);
 
         $this->storeSearchResult = new StoreSearchResult(

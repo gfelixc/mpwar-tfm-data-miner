@@ -4,13 +4,13 @@ namespace Mpwar\DataMiner\Application\Service;
 
 use Mpwar\DataMiner\Domain\DocumentRepository;
 use Mpwar\DataMiner\Domain\Keyword;
-use Mpwar\DataMiner\Domain\Service\Service;
+use Mpwar\DataMiner\Domain\Service\ParserService;
 use Mpwar\DataMiner\Domain\Service\ServiceRecord;
 
 class StoreSearchResult
 {
     /**
-     * @var Service
+     * @var ParserService
      */
     private $service;
     /**
@@ -18,7 +18,7 @@ class StoreSearchResult
      */
     private $documentRepository;
 
-    public function __construct(Service $service, DocumentRepository $documentRepository)
+    public function __construct(ParserService $service, DocumentRepository $documentRepository)
     {
         $this->service            = $service;
         $this->documentRepository = $documentRepository;
@@ -33,9 +33,9 @@ class StoreSearchResult
     }
 
     /**
-     * @return Service
+     * @return ParserService
      */
-    public function service(): Service
+    public function service(): ParserService
     {
         return $this->service;
     }

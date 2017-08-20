@@ -1,13 +1,13 @@
 <?php
 
-namespace Mpwar\DataMiner\Test\Application;
+namespace Mpwar\DataMiner\Test\Behaviour;
 
 use Mockery\Mock;
 use Mpwar\DataMiner\Application\DocumentTransformer;
 use Mpwar\DataMiner\Application\MessageBus;
 use Mpwar\DataMiner\Application\Service\FindKeyword;
 use Mpwar\DataMiner\Application\Service\StoreSearchResult;
-use Mpwar\DataMiner\Domain\Service\Service;
+use Mpwar\DataMiner\Domain\Service\FinderService;
 use Mpwar\DataMiner\Test\Infrastructure\DocumentStub;
 use Mpwar\DataMiner\Test\Infrastructure\KeywordStub;
 use Mpwar\DataMiner\Test\Infrastructure\ServiceRecordCollectionStub;
@@ -16,7 +16,7 @@ use Mpwar\Test\Infrastructure\UnitTestCase;
 
 class FindKeywordTest extends UnitTestCase
 {
-    /** @var  Mock|Service */
+    /** @var  Mock|FinderService */
     private $service;
     /** @var  Mock|StoreSearchResult */
     private $storeSearchResult;
@@ -28,7 +28,7 @@ class FindKeywordTest extends UnitTestCase
     private $findKeyword;
 
     /**
-     * @return Mock|Service
+     * @return Mock|FinderService
      */
     public function service()
     {
@@ -71,7 +71,7 @@ class FindKeywordTest extends UnitTestCase
     {
         parent::setUp();
 
-        $this->service             = $this->mock(Service::class);
+        $this->service             = $this->mock(FinderService::class);
         $this->storeSearchResult   = $this->mock(StoreSearchResult::class);
         $this->documentTransformer = $this->mock(DocumentTransformer::class);
         $this->messageBus          = $this->mock(MessageBus::class);

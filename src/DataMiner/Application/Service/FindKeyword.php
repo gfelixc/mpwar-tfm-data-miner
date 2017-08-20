@@ -4,32 +4,23 @@ namespace Mpwar\DataMiner\Application\Service;
 
 use Mpwar\DataMiner\Application\DocumentTransformer;
 use Mpwar\DataMiner\Application\MessageBus;
-use Mpwar\DataMiner\Application\Service\StoreSearchResult;
 use Mpwar\DataMiner\Domain\Keyword;
-use Mpwar\DataMiner\Domain\Service\Service;
+use Mpwar\DataMiner\Domain\Service\FinderService;
 use Mpwar\DataMiner\Domain\Service\ServiceRecord;
 
 class FindKeyword
 {
-    /**
-     * @var Service
-     */
-    private $service;
-    /**
-     * @var StoreSearchResult
-     */
+    /** @var StoreSearchResult */
     private $storeSearchResult;
-    /**
-     * @var DocumentTransformer
-     */
+    /** @var DocumentTransformer*/
     private $documentTransformer;
-    /**
-     * @var MessageBus
-     */
+    /** @var MessageBus */
     private $messageBus;
+    /** @var FinderService  */
+    private $service;
 
     public function __construct(
-        Service $service,
+        FinderService $service,
         StoreSearchResult $storeSearchResult,
         DocumentTransformer $documentTransformer,
         MessageBus $messageBus
