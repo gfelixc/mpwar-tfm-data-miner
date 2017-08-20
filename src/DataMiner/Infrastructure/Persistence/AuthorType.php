@@ -12,11 +12,12 @@ class AuthorType extends Type
     public function convertToDatabaseValue($value)
     {
         /** @var Author $value */
-        if ($value !== null && ! is_a($value, Author::class)) {
-            throw MongoDBException::invalidValueForType('AuthorType', array('AuthorType', 'null'), $value);
+        if ($value !== null && !is_a($value, Author::class)) {
+            throw MongoDBException::invalidValueForType('AuthorType', ['AuthorType', 'null'], $value);
         }
+
         return $value !== null ? [
-            'name' => $value->name(),
+            'name'     => $value->name(),
             'location' => $value->location()
         ] : null;
     }
@@ -25,5 +26,4 @@ class AuthorType extends Type
     {
         return new Author($value->name, $value->location);
     }
-
 }
