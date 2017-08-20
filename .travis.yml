@@ -1,0 +1,13 @@
+language: php
+php:
+  - '7.1'
+sudo: false
+dist: trusty
+before_install:
+  - pecl install mongodb
+install:
+  - composer install
+before_script: 
+  - phpenv config-add resources/php.ini
+script:
+  - phpunit
