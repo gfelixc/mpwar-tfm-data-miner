@@ -2,17 +2,17 @@
 
 namespace Mpwar\DataMiner\Test\Infrastructure;
 
-use Mpwar\DataMiner\Domain\Keyword;
+use AntPack\DataTypes\Common\Language;
 use Mpwar\Test\Infrastructure\Stub;
 
-class KeywordStub extends Stub
+class LanguageStub extends Stub
 {
     public static function create($value)
     {
-        return new Keyword($value);
+        return new Language($value);
     }
     public static function random()
     {
-        return self::create(self::factory()->word);
+        return self::create(self::factory()->languageCode);
     }
 }

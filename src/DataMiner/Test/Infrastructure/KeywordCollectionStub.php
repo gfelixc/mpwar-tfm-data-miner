@@ -2,10 +2,10 @@
 
 namespace Mpwar\DataMiner\Test\Infrastructure;
 
-use Mpwar\DataMiner\Domain\Keyword\KeywordsCollection;
+use Mpwar\DataMiner\Domain\KeywordCollection;
 use Mpwar\Test\Infrastructure\Stub;
 
-class KeywordsCollectionStub extends Stub
+class KeywordCollectionStub extends Stub
 {
     public static function random()
     {
@@ -18,9 +18,9 @@ class KeywordsCollectionStub extends Stub
         return self::create($keywords);
     }
 
-    public static function create(array $values)
+    public static function create(...$values)
     {
-        return new KeywordsCollection(...$values);
+        return new KeywordCollection(...$values);
     }
 
     public static function empty()

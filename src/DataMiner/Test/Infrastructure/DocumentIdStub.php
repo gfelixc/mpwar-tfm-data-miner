@@ -12,7 +12,7 @@ class DocumentIdStub extends Stub
         return self::create(self::factory()->uuid);
     }
 
-    public static function create($value)
+    public static function create($value): DocumentId
     {
         return DocumentId::fromString($value);
     }
