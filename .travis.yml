@@ -18,3 +18,5 @@ after_success:
   - vendor/bin/test-reporter
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker build -t gfelixc/data-miner .
+  - docker tag travis-ci-build $DOCKER_USERNAME/data-miner
+  - docker push $DOCKER_USERNAME/data-miner
