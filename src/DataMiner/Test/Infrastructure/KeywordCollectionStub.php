@@ -15,7 +15,7 @@ class KeywordCollectionStub extends Stub
             $keywords[] = KeywordStub::random();
         }
 
-        return self::create($keywords);
+        return self::create(...$keywords);
     }
 
     public static function create(...$values)
