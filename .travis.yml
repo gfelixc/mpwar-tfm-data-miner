@@ -6,6 +6,6 @@ dist: trusty
 before_install:
   - phpenv config-add resources/php.ini
 install:
-  - composer install --no-dev
+  - composer install
 script:
   - phpunit
