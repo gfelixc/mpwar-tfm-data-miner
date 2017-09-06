@@ -3,7 +3,7 @@
 namespace Mpwar\DataMiner\Infrastructure\Ui;
 
 use Doctrine\ODM\MongoDB\Types\Type;
-use Mpwar\DataMiner\Infrastructure\Application\DocumentToArray;
+use Mpwar\DataMiner\Infrastructure\Application\DocumentToMessage;
 use Mpwar\DataMiner\Application\Service\StoreSearchResult;
 use Mpwar\DataMiner\Infrastructure\Persistence\AuthorType;
 use Mpwar\DataMiner\Infrastructure\Persistence\CreatedAtType;
@@ -51,7 +51,7 @@ class DataMinerServiceProvider implements ServiceProviderInterface
             $app['config']['mpwar.miner']['queue_url']
         );
 
-        $app['document.transformer'] = new DocumentToArray();
+        $app['document.transformer'] = new DocumentToMessage();
 
         $app['application.store_search_result'] = new StoreSearchResult(
             $app['parser.twitter'],

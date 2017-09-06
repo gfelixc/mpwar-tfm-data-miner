@@ -6,5 +6,5 @@ use Mpwar\DataMiner\Domain\Document;
 
 interface DocumentTransformer
 {
-    public function transform(Document $document);
+    public function transform(Document $document): string;
 }
