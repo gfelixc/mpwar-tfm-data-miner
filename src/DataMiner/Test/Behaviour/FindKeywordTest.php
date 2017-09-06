@@ -92,7 +92,6 @@ class FindKeywordTest extends UnitTestCase
         $recordsCollection = ServiceRecordCollectionStub::create($record);
         $document = DocumentStub::customKeywordText('hooli', 'We\'re more than the chat, mail, 
         search and phone that\'s crowned Hooli as the most respected brand in the world.');
-        $documentArray = [];
         $message = json_encode([
             'eventName'  => 'RawDocumentWasStored',
             'occurredOn' => (new \DateTime())->format(DATE_ATOM),
@@ -115,12 +114,12 @@ class FindKeywordTest extends UnitTestCase
             ->shouldReceive('transform')
             ->once()
             ->with($document)
-            ->andReturn($documentArray);
+            ->andReturn($message);
 
         $this->messageBus()
             ->shouldReceive('dispatch')
             ->once()
-            ->with($message)
+            ->with(equalTo($message))
             ->andReturn();
 
         $this->assertEquals(null, $this->findKeyword()->find($keyword));

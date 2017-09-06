@@ -37,14 +37,8 @@ class FindKeyword
         /** @var ServiceRecord $record */
         foreach ($serviceRecordsCollection as $record) {
             $document = $this->storeSearchResult->execute($record, $keyword);
-
-            $message = [
-                'eventName'  => 'RawDocumentWasStored',
-                'occurredOn' => (new \DateTime())->format(DATE_ATOM),
-                'data'       => $this->documentTransformer->transform($document)
-            ];
-
-            $this->messageBus->dispatch(json_encode($message));
+            $message = $this->documentTransformer->transform($document);
+            $this->messageBus->dispatch($message);
         }
     }
 }
