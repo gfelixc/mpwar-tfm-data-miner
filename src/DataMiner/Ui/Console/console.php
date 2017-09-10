@@ -8,6 +8,7 @@ $console->setHelperSet(
             'documentManager' => new \Doctrine\ODM\MongoDB\Tools\Console\Helper\DocumentManagerHelper(
                 $app['mongodbodm.dm']
             ),
+            'helper' => new \Symfony\Component\Console\Helper\QuestionHelper(),
         )
     )
 );

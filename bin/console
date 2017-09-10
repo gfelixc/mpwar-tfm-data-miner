@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-$app = require __DIR__ . '/../src/DataMiner/Infrastructure/Ui/Console/app.php';
-$console = require __DIR__ . '/../src/DataMiner/Infrastructure/Ui/Console/console.php';
+$app = require __DIR__ . '/../src/DataMiner/Ui/Console/app.php';
+$console = require __DIR__ . '/../src/DataMiner/Ui/Console/console.php';
 
 exit($console->run());

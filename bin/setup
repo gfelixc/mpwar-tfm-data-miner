@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+require_once 'vendor/autoload.php';
+
+$console = new Symfony\Component\Console\Application();
+$console->setHelperSet(
+    new Symfony\Component\Console\Helper\HelperSet(
+        [
+            'helper' => new \Symfony\Component\Console\Helper\QuestionHelper(),
+        ]
+    )
+);
+$console->addCommands(
+    [
+        new \Mpwar\DataMiner\Ui\Console\Command\ConfigApplicationCommand(),
+    ]
+);
+
+exit($console->run());
