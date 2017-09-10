@@ -1,6 +1,6 @@
 <?php
 
-namespace Mpwar\DataMiner\Infrastructure\Ui\Console\Command;
+namespace Mpwar\DataMiner\Ui\Console\Command;
 
 use Mpwar\DataMiner\Application\Service\FindKeyword;
 use Mpwar\DataMiner\Domain\Keyword;

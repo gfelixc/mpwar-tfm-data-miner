@@ -1,6 +1,6 @@
 <?php
 
-namespace Mpwar\DataMiner\Infrastructure\Ui;
+namespace Mpwar\DataMiner\Ui;
 
 use Doctrine\ODM\MongoDB\Types\Type;
 use Mpwar\DataMiner\Infrastructure\Application\DocumentToMessage;

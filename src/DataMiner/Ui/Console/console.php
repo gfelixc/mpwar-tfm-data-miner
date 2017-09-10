@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../../../../vendor/autoload.php';
+require_once __DIR__ . '/../../../../vendor/autoload.php';
 
 $console = new Symfony\Component\Console\Application();
 $console->setHelperSet(
@@ -13,10 +13,7 @@ $console->setHelperSet(
 );
 $console->addCommands(
     [
-//        new \Mpwar\DataMiner\Infrastructure\Ui\Console\Command\DataMinerCommand(
-//            $app['application.find_keyword']
-//        ),
-        new \Mpwar\DataMiner\Infrastructure\Ui\Console\Command\FindKeywordCommand(
+        new \Mpwar\DataMiner\Ui\Console\Command\FindKeywordCommand(
             $app['application.find_keyword']
         ),
         new \Doctrine\ODM\MongoDB\Tools\Console\Command\Schema\CreateCommand(),
