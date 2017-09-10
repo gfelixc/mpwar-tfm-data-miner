@@ -1,6 +1,6 @@
 <?php
 
-$rootPath = __DIR__ . '/../../../../../mpwar-tfm-data-miner/';
+$rootPath = __DIR__ . '/../../../../';
 require_once $rootPath . 'vendor/autoload.php';
 
 $app = new Silex\Application();
