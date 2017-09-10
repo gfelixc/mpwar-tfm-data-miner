@@ -1,6 +1,10 @@
 #!/usr/bin/env php
 <?php
 
+if ( !is_file(__DIR__ . '/../resources/config/config.yml')) {
+    require 'setup';
+}
+
 $app = require __DIR__ . '/../src/DataMiner/Ui/Console/app.php';
 $console = require __DIR__ . '/../src/DataMiner/Ui/Console/console.php';
 

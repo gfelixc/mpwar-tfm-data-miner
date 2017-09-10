@@ -12,5 +12,6 @@ COPY . /usr/src/dataminer
 WORKDIR /usr/src/dataminer
 
 RUN ["chmod", "+x", "bin/console"]
+RUN ["chmod", "+x", "bin/setup"]
 
 ENTRYPOINT ["bin/console"]
