@@ -12,7 +12,8 @@ $console->setHelperSet(
 );
 $console->addCommands(
     [
-        new \Mpwar\DataMiner\Ui\Console\Command\ConfigApplicationCommand(),
+        new \Mpwar\DataMiner\Ui\Console\Command\ConfigFromQuestionsCommand(),
+        new \Mpwar\DataMiner\Ui\Console\Command\ConfigFromEnvCommand(),
     ]
 );
 

@@ -5,4 +5,4 @@ services:
     ports:
       - "27017:27017"
   demo:
-    image: "gfelixc/data-miner"
+    image: "gfelixc/data-miner-demo"

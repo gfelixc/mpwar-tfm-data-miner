@@ -8,11 +8,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 
-class ConfigApplicationCommand extends Command
+class ConfigFromQuestionsCommand extends Command
 {
     protected function configure()
     {
-        $this->setName('app:setup')->setDescription('Config application parameters');
+        $this->setName('setup:questions')->setDescription('Interactive questions to config application parameters');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
