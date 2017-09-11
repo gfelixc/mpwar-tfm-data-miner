@@ -20,7 +20,7 @@ after_success:
   - docker build -t gfelixc/data-miner .
   - docker tag travis-ci-build $DOCKER_USERNAME/data-miner
   - docker push $DOCKER_USERNAME/data-miner
-  - sudo bin/setup setup:env
+  - bin/setup setup:env
   - docker build -t gfelixc/data-miner-demo .
   - docker tag travis-ci-build $DOCKER_USERNAME/data-miner-demo
   - docker push $DOCKER_USERNAME/data-miner-demo
